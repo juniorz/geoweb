@@ -1,4 +1,4 @@
-module Geo
+module GeoWeb
   module Projection
 
     class Linear < Base

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-module Geo
+module GeoWeb
   class Transformation
     attr_reader :ax, :bx, :cx, :ay, :by, :cy
 

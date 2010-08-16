@@ -1,4 +1,4 @@
-module Geo
+module GeoWeb
   module Projection
 
     class Base
@@ -24,19 +24,16 @@ module Geo
         point
       end
 
-      def location_coordinate(location)
-        point = Point.new(Math::PI * location.lon.to_f / 180.0, Math::PI * location.lat.to_f / 180.0)
-        point = self.project(point)
-
-        Coordinate.new(point.y, point.x, self.zoom)
+      def location_coordinate(latlon)
+        point = self.project(latlon.to_rad)
+        Coordinate.new(point.x, point.y, self.zoom)
       end
 
       def coordinate_location(coordinate)
         coordinate = coordinate.zoom_to(self.zoom)
-        point = Point.new(coordinate.column, coordinate.row)
+        point = Point.new(coordinate.x, coordinate.y)
         point = self.unproject(point)
-
-        Location.from_lat_lon(180.0 * point.y.to_f / Math::PI, 180.0 * point.x.to_f / Math::PI)
+        LatLon.new(point).to_deg
       end
 
     end

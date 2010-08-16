@@ -7,8 +7,6 @@ spec = Gem::Specification.new do |s|
   s.summary = "GeoWeb is a Ruby Geographic Web Library"
 
 #  s.required_ruby_version = '>= 1.8.7'
-#  s.add_dependency('rmagick')
-#  s.requirements << "Ruby GDAL bindings (libgdal-ruby)"
 
   require 'rake'
   s.files = FileList["{bin,lib,spec}/**/*"].to_a
